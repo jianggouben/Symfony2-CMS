@@ -1,0 +1,11 @@
+sandboxwebsitebundle_default:
+    resource: "@SandboxWebsiteBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /
+
+sandboxwebsitebundle_satellite_admin_list:
+    resource: @SandboxWebsiteBundle/Controller/SatelliteAdminListController.php
+    type:     annotation
+    prefix:   /{_locale}/admin/satellite/
+    requirements:
+         _locale: %requiredlocales%

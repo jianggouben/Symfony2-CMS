@@ -1,0 +1,13 @@
+services:
+    sandboxwebsitebundle.default_locale_listener:
+        class: Sandbox\WebsiteBundle\EventListener\DefaultLocaleListener
+        tags:
+          - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+        arguments: [%defaultlocale%]
+
+
+    sandboxwebsitebundle.admin_menu_adaptor:
+        class: Sandbox\WebsiteBundle\Helper\Menu\AdminMenuAdaptor
+        arguments: ["@security.context"]
+        tags:
+            -  { name: 'kunstmaan_admin.menu.adaptor' }
